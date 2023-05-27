@@ -1,67 +1,68 @@
 <template>
-  <div class="m-4" style="text-align:left">
-    <div style="text-align:center">
-      <img src="../assets/logoheader.png" class="img-fluid w-50 w-md-50" />
-    </div>
-    <div class="mt-5">
-      <p>
-        CHB Project appreciates the feedback and
-        input from everyone to have a positive work
-        environment where everyone is appreciated,
-        You Say Matters!!!
-      </p>
-    </div>
-    
-   <div class="mt-3" style="text-align:left">
-    <b-form-group
-    
-      v-slot="{ ariaDescribedby }"
-    > 
-      <b-form-checkbox
-        v-for="option in categories"
-        v-model="selected"
-        :key="option.value"
-        :value="option.value"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-3a"
-      >&nbsp;
-        {{ option.text }}
-      </b-form-checkbox>
-    </b-form-group>
-   </div>
-   <div class="mt-5" style="text-align:left">
-    <span>
-      Is your feedback positive, would you like to
-      acknowledge one of the team or do you have an
-      opportunity for improvement
-    </span>
-   </div>
-    {{ selected_feedback }}
-    <div class="mt-3" style="text-align:left">
-      <b-form-select v-model="selected_feedback" :options="types"></b-form-select>&nbsp;
-      <div class="col-md-6 mt-3">
+  <b-container>
+    <div class="m-4" style="text-align:left">
+      <div style="text-align:center">
+        <img src="../assets/logoheader.png" class="img-fluid w-50 w-md-50" />
+      </div>
+      <div class="mt-5">
+        <p>
+          CHB Project appreciates the feedback and
+          input from everyone to have a positive work
+          environment where everyone is appreciated,
+          You Say Matters!!!
+        </p>
+      </div>
+      
+      <div class="mt-3" style="text-align:left">
         <b-form-group
-        label="Comment :"
-        label-for="textarea-formatter"
-        class="mb-0"
-      >
-        <b-form-textarea
-          id="textarea-formatter"
-          v-model="comment"
-          placeholder="Free text Box"
-          
-          size="sm"
-          rows="4"
-        ></b-form-textarea>
-      </b-form-group>
-    </div>
-    <div class="mt-3" style="text-align:center">
-      <b-button class="w-50" @click="nextPage()" variant="secondary">Next</b-button>
-    </div>
+          v-slot="{ ariaDescribedby }"
+        > 
+          <b-form-checkbox
+            v-for="option in categories"
+            v-model="selected"
+            :key="option.value"
+            :value="option.value"
+            :aria-describedby="ariaDescribedby"
+            name="flavour-3a"
+          >&nbsp;
+            {{ option.text }}
+          </b-form-checkbox>
+        </b-form-group>
+      </div>
+
+      <div class="mt-5" style="text-align:left">
+        <span>
+          Is your feedback positive, would you like to
+          acknowledge one of the team or do you have an
+          opportunity for improvement
+        </span>
+      </div>
+        <div class="mt-3" style="text-align:left">
+          <b-form-select v-model="selected_feedback" :options="types"></b-form-select>&nbsp;
+          <div class="col-md-6 mt-3">
+            <b-form-group
+            label="Comment :"
+            label-for="textarea-formatter"
+            class="mb-0"
+          >
+            <b-form-textarea
+              id="textarea-formatter"
+              v-model="comment"
+              placeholder="Free text Box"
+              
+              size="sm"
+              rows="4"
+            ></b-form-textarea>
+          </b-form-group>
+        </div>
+        <div class="mt-3" style="text-align:center">
+          <b-button class="w-50" @click="nextPage()" variant="secondary">Next</b-button>
+        </div>
 
 
-  </div>
-  </div>
+      </div>
+    </div>
+  </b-container>
 </template>
 <script>
 import axios from 'axios'
@@ -81,7 +82,7 @@ export default {
     //localStorage.removeItem('comment');
     this.comment = localStorage.getItem('comment');
     localStorage.removeItem('type');
-    this.loadOptions();
+    this.loadOptions();    
   },
   methods:{
     loadOptions() {
@@ -110,3 +111,4 @@ export default {
   }
 }
 </script>
+

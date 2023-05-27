@@ -24,6 +24,13 @@ export default ({
     created(){
         localStorage.removeItem('id');
         this.getMenu()
+        document.body.style.backgroundImage = "url(/img/bg.png)";
+        document.body.style.opacity = "90%";
+    },
+    beforeDestroy ()
+    {
+        document.body.style.backgroundImage = "";
+        document.body.style.opacity = "";
     },
     methods: {
         getMenu() {
@@ -42,10 +49,6 @@ export default ({
 
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-    .container {
-        background: url(@/assets/bg.png);
-        opacity: 90%;
-    }
     div{ 
         padding: 20px;
     }
