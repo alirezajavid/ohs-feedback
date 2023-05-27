@@ -1,4 +1,5 @@
 <?php
+
 include "config.php";
 require_once "sendmail.php";
 require_once "save_pdf.php";
@@ -24,6 +25,13 @@ if ($REQUEST_METHOD === 'GET' && $action == "types") {
 else
 if ($REQUEST_METHOD === 'POST' && $action == "send") {
     send_feedback();
+    exit();
+}
+else
+if ($REQUEST_METHOD === 'POST' && $action == "login") {
+    $success = ($_POST['username'] == 'admin' && $_POST['password'] == 'admin');
+    http_response_code($success?200:401);
+    print json_encode(["loggedin" => $success]);
     exit();
 }
 else {
