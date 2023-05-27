@@ -1,0 +1,5 @@
+{"types": [
+        { "value": "Positive", "text": "Positive" },
+        { "value": "Acknowledge", "text": "Acknowledge" },
+        { "value": "Opportunity", "text": "Opportunity" }
+      ]}
