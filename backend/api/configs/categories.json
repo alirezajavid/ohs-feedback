@@ -1,7 +1,29 @@
-{"categories": [
-    { "text": "Safety", "value": "Safety" },
-    { "text": "Environmental", "value": "Environmental" },
-    { "text": "Culture", "value": "Culture" },
-    { "text": "Community", "value": "Community" },
-    { "text": "Quality", "value": "Quality" }
-  ]}
+{
+  "categories": [
+    {
+      "text": "Safety",
+      "value": "Safety",
+      "email": "navaro_81@yahoo.com"
+    },
+    {
+      "text": "Environmental",
+      "value": "Environmental",
+      "email": "navaro_81@yahoo.com"
+    },
+    {
+      "text": "Culture",
+      "value": "Culture",
+      "email": "navaro_81@yahoo.com"
+    },
+    {
+      "text": "Community",
+      "value": "Community",
+      "email": "navaro_81@yahoo.com"
+    },
+    {
+      "text": "Quality",
+      "value": "Quality",
+      "email": "navaro_81@yahoo.com"
+    }
+  ]
+}

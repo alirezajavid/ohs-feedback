@@ -40,7 +40,7 @@ export default {
     },
     created () {
         axios
-            .get("/rules/api/?action=menu")
+            .get("/feedback/api/?action=menu")
             .then(
                 r => this.items = r.data.map(r => { return { ...r, action: '' } })
             )

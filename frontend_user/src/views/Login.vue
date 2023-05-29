@@ -50,7 +50,7 @@ export default {
             bodyFormData.append('username', this.username);
             bodyFormData.append('password', this.password);
             axios
-                .post("/rules/api/?action=login", bodyFormData)
+                .post("/feedback/api/?action=login", bodyFormData)
                 .then(
                     r =>
                     {

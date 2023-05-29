@@ -1,3 +1,3 @@
 <?php
-$BASE_URL = '/rules/api/';
+$BASE_URL = '/feedback/api/';
 #$BASE_URL = '/api/';
