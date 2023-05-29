@@ -82,7 +82,7 @@ export default {
     //localStorage.removeItem('comment');
     this.comment = localStorage.getItem('comment');
     localStorage.removeItem('type');
-    this.loadOptions();    
+    this.loadOptions();
   },
   methods:{
     loadOptions() {
