@@ -84,5 +84,5 @@ function send_document($recepient, $html, $file_name, $subject)
     $returnpath = "-f" . $config->from_mail; 
     
     // Send email 
-    return mail($recepient->email, $subject, $message, $headers, $returnpath);  
+    return mail($recepient, $subject, $message, $headers, $returnpath);  
 }
