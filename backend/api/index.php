@@ -8,11 +8,6 @@ header('Content-Type: application/json; charset=utf-8');
 $action = @$_GET['action'];
 $REQUEST_METHOD = @$_SERVER['REQUEST_METHOD'];
 
-if ($REQUEST_METHOD === 'GET' && $action == "menu") {
-    print json_encode(get_email_recepients());
-    exit();
-}
-else
 if ($REQUEST_METHOD === 'GET' && $action == "categories") {
     readfile("configs/categories.json");
     exit();

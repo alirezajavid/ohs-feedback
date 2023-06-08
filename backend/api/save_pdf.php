@@ -14,6 +14,18 @@ function save_pdf($data)
     return [$html, $dompdf->output()];
 }
 
+function getEmailes($cats){
+    $selected_category = explode(',', $cats);
+    $categories = json_decode(file_get_contents("configs/categories.json"))->categories;
+    $r = [];
+    foreach ($categories as $key => $v) {
+        if (in_array($v->value, $selected_category))
+            array_push($r, $v->email);
+    }
+    return $r;
+}
+
+
 function send_feedback()
 {
     global $BASE_URL;
@@ -23,23 +35,22 @@ function send_feedback()
     $file_name = date("YmdHis").$data2->type[0].uniqid();
     @mkdir("repository/{$file_name}");
     file_put_contents("repository/{$file_name}/data.json", $data);
-    
     $a = save_pdf($data2);
     file_put_contents("repository/{$file_name}/report.pdf", $a[1]);
     file_put_contents("repository/{$file_name}/report.html", $a[0]);
-    $recepients = get_email_recepients();
-    $emails = [];
-    send_document(
-        $recepients[$data2->id],
-        $a[0], 
-        "repository/{$file_name}/report.pdf", 
-        "Feedback"
-    );
+    $emails = getEmailes($data2->category);
+    foreach($emails as $v)
+        send_document(
+            $v,
+            $a[0], 
+            "repository/{$file_name}/report.pdf", 
+            "Feedback"
+        );
 
     header('Content-Type: application/json; charset=utf-8');
     print (
         json_encode([
-            'mail' => $recepients[$data2->id],
+            'mail' => $emails,
             'pdf' => $BASE_URL ."repository/{$file_name}/report.pdf",
             'html' => $BASE_URL ."repository/{$file_name}/report.html"
         ])

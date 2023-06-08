@@ -13,33 +13,6 @@ function get_email_config()
     return json_decode($r);
 }
 
-function get_email_recepients()
-{
-    global $BASE_URL;
-    $data = file_exists($_SERVER['DOCUMENT_ROOT'].$BASE_URL .'configs/mail_receipients.json') ? file_get_contents($_SERVER['DOCUMENT_ROOT'].$BASE_URL .'configs/mail_receipients.json') : false;
-    if ($data !== false && $data != null) {
-        return json_decode($data);
-    }
-    $r = [
-        [ 'id' => 1, 'name' => 'Fitness for word', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 2, 'name' => 'Hazardous Chemicals', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 3, 'name' => 'Working at height', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 4, 'name' => 'Demolition and asbbestous', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 5, 'name' => 'Temporary work', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 6, 'name' => 'confidense space', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 7, 'name' => 'excavation', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 8, 'name' => 'Electrical', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 9, 'name' => 'traffic', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 10, 'name' => 'Mobile plamt', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 11, 'name' => 'Creoewoer', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 12, 'name' => 'Work Water', 'email' => 'navaro@yhoo.com'],
-        [ 'id' => 13, 'name' => 'Tunnelin', 'email' => 'navaro@yhoo.com']
-    ];
-    $r = json_encode($r);
-    file_put_contents($_SERVER['DOCUMENT_ROOT'].$BASE_URL .'configs/mail_receipients.json', $r);
-    return json_decode($r);
-}
-
 function send_document($recepient, $html, $file_name, $subject)
 {
     $config = get_email_config();

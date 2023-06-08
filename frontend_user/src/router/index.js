@@ -6,12 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'menu',
-    component: () => import(/* webpackChunkName: "Menu" */ '../views/Menu.vue')
-  },
-  {
-    path: '/feed_back',
-    name: 'feed_back',
+    name: 'feedback',
     component: () => import(/* webpackChunkName: "PageOne" */ '../views/PageOne.vue')
   },
   {

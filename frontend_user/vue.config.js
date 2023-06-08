@@ -2,12 +2,14 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
 
-  chainWebpack: config => {
+  chainWebpack: config =>
+  {
     config.module
       .rule('vue')
       .use('vue-loader')
       .loader('vue-loader')
-      .tap(options => {
+      .tap(options =>
+      {
         options.transformAssetUrls = {
           img: 'src',
           image: 'xlink:href',
@@ -26,12 +28,12 @@ module.exports = defineConfig({
   },
   devServer: {
     proxy: {
-      '/rules/api': {
+      '/feedback/api': {
         target: 'http://127.0.0.1:2000'
       }
     }
   },
   publicPath: process.env.NODE_ENV === 'production'
-  ? '/rules/'
-  : ''
+    ? '/feedback/'
+    : ''
 })

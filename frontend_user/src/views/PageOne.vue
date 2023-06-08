@@ -9,7 +9,7 @@
           CHB Project appreciates the feedback and
           input from everyone to have a positive work
           environment where everyone is appreciated,
-          You Say Matters!!!
+          Your Say Matters!!!
         </p>
       </div>
       
@@ -37,23 +37,22 @@
           opportunity for improvement
         </span>
       </div>
-        <div class="mt-3" style="text-align:left">
+      <div class="mt-3" style="text-align:left">
           <b-form-select v-model="selected_feedback" :options="types"></b-form-select>&nbsp;
           <div class="col-md-6 mt-3">
             <b-form-group
-            label="Comment :"
-            label-for="textarea-formatter"
-            class="mb-0"
-          >
+              label="Comment :"
+              label-for="textarea-formatter"
+              class="mb-0"
+            >
             <b-form-textarea
               id="textarea-formatter"
               v-model="comment"
-              placeholder="Free text Box"
-              
+              placeholder=""              
               size="sm"
               rows="4"
             ></b-form-textarea>
-          </b-form-group>
+            </b-form-group>
         </div>
         <div class="mt-3" style="text-align:center">
           <b-button class="w-50" @click="nextPage()" variant="secondary">Next</b-button>
@@ -82,19 +81,19 @@ export default {
     //localStorage.removeItem('comment');
     this.comment = localStorage.getItem('comment');
     localStorage.removeItem('type');
-    this.loadOptions();    
+    this.loadOptions();
   },
   methods:{
     loadOptions() {
       axios
-        .get('/rules/api/?action=categories')
+        .get('/feedback/api/?action=categories')
         .then(
           r => {
             this.categories = r.data.categories
           }
         )
       axios
-        .get('/rules/api/?action=types')
+        .get('/feedback/api/?action=types')
         .then(
           r => {
             this.types = r.data.types

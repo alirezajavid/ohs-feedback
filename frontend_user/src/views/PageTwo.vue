@@ -9,7 +9,7 @@
           CHB Project appreciates the feedback and
           input from everyone to have a positive work
           environment where everyone is appreciated,
-          You Say Matters!!!
+          Your Say Matters!!!
         </p>
       </div>
       <div table-responsive-lg>
@@ -19,12 +19,12 @@
             <label class="form-check-label" for="switchToggle">Would you like feedback?</label>  
           </td>
           <td  class="form-check form-switch text-center">
-              <input class="form-check-input" type="checkbox" id="switchToggle" checked>
+              <input v-model="like_feedback" class="form-check-input" type="checkbox" id="switchToggle" checked>
           </td>
         </tr>
       </table>
       </div>
-    <div class="mt-3">
+    <div class="mt-3" v-if="like_feedback">
       <b-row class="my-1">
         <b-col sm="2" lg="1">
           <label for="input-small">Name</label>
@@ -70,6 +70,7 @@ export default {
   },
   data() {
     return {
+      like_feedback: false,
       name: '',
       email: '',
       mobile: ''

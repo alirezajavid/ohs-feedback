@@ -9,7 +9,7 @@
           CHB Project appreciates the feedback and
           input from everyone to have a positive work
           environment where everyone is appreciated,
-          You Say Matters!!!
+          Your Say Matters!!!
       </p>
       </div>
       <center>
@@ -26,7 +26,7 @@
             We appreciate the comments and
             thoughts of everyone on our project
           </h4>
-          <b-button  @click="$router.push({'name' : 'menu'})" variant="secondary"><b-icon-house /> Home</b-button>
+          <b-button  @click="$router.push({'name' : 'feedback'})" variant="secondary"><b-icon-house /> Home</b-button>
         </div> 
       </b-alert>
     </div>
@@ -51,7 +51,7 @@ export default {
         type: localStorage.getItem('type'),
         id: localStorage.getItem('id'),
       }
-      axios.post('/rules/api/?action=send', params)
+      axios.post('/feedback/api/?action=send', params)
         .then(
           r => {
             if (r.status == 201)

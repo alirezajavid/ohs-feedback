@@ -1,6 +1,6 @@
-rm -rf release/rules
-mkdir -p release/rules/api
-#mkdir -p release/rules/admin
+rm -rf release/feedback
+mkdir -p release/feedback/api
+#mkdir -p release/feedback/admin
 
 cd frontend_user
 npm run build
@@ -10,11 +10,11 @@ cd ..
 #cd ..
 
 
-cp -r frontend_user/dist/* release/rules/
-#cp -r frontend_admin/dist/* release/rules/admin/
-cp -r backend/* release/rules/
-rm release/rules/api/repositories/*
+cp -r frontend_user/dist/* release/feedback/
+#cp -r frontend_admin/dist/* release/feedback/admin/
+cp -r backend/* release/feedback/
+rm release/feedback/api/repositories/*
 
 cd release
-zip -r all.zip rules 
+zip -r all.zip feedback 
 #ftp alireza@ohsconnect.com.au
