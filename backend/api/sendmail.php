@@ -5,7 +5,7 @@ function get_email_config()
     if ($data !== false)
         return json_decode($data);
     $r = [
-        "from_name" => "Jake Dummett",
+        "from_name" => "Helix Solutions Group",
         "from_mail" => "info@helixsafety.com.au",
     ];
     $r = json_encode($r);
@@ -24,9 +24,7 @@ function send_document($recepient, $html, $file_name, $subject)
     // Email body content 
     $htmlContent = $html; 
     // Header for sender info 
-    $headers = "From: ".($config->from_name)." <".($config->from_mail).">\n"; 
-    if (isset($recepient->cc))
-        $headers .= 'Cc: '.$recepient->cc . "\n";
+    $headers = "From: ".($config->from_name)." <".($config->from_mail).">\r\n";     
     // Boundary  
     $semi_rand = md5(time());  
     $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";  
@@ -57,5 +55,5 @@ function send_document($recepient, $html, $file_name, $subject)
     $returnpath = "-f" . $config->from_mail; 
     
     // Send email 
-    return mail($recepient->email, $subject, $message, $headers, $returnpath);  
+    return mail($recepient, $subject, $message, $headers, $returnpath);  
 }

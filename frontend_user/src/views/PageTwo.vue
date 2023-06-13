@@ -4,14 +4,7 @@
       <div style="text-align:center">
         <img src="../assets/logoheader.png" class="img-fluid w-50 w-md-50" />
       </div>
-      <div class="mt-5">
-        <p>
-          CHB Project appreciates the feedback and
-          input from everyone to have a positive work
-          environment where everyone is appreciated,
-          Your Say Matters!!!
-        </p>
-      </div>
+
       <div table-responsive-lg>
       <table class="table table-sm">
         <tr>
@@ -78,9 +71,9 @@ export default {
   },
   methods:{
     nextPage(){
-      localStorage.setItem('name', this.name)
-      localStorage.setItem('email', this.email)
-      localStorage.setItem('mobile', this.mobile)
+      localStorage.setItem('name', this.like_feedback?this.name:'')
+      localStorage.setItem('email', this.like_feedback?this.email:'')
+      localStorage.setItem('mobile', this.like_feedback?this.mobile:'')
       this.$router.push("/submit");
     }
   }

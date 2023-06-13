@@ -65,7 +65,7 @@
             <?php
                 $g = ['Safety','Environmental','Culture','Community','Quality'];
                 foreach ($g as $key => $v) {
-                    print("<td ".(in_array($v, $i)? "class='yes'").">" . $v . "</td>");
+                    print "<td ".(in_array($v, $i)? "class='yes'":'').">" . $v . "</td>";
                 }
             ?>
                 </tr>

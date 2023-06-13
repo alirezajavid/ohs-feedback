@@ -12,7 +12,13 @@
           Your Say Matters!!!
         </p>
       </div>
-      
+      <b-form-textarea
+              id="textarea-formatter"
+              v-model="comment2"
+              placeholder=""              
+              size="sm"
+              rows="4"
+            ></b-form-textarea>
       <div class="mt-3" style="text-align:left">
         <b-form-group
           v-slot="{ ariaDescribedby }"
@@ -69,6 +75,7 @@ export default {
   data() {
     return {
       comment: '',
+      comment2: '',
       selected: [], 
       selected_feedback: null,
       categories:[],
@@ -104,6 +111,7 @@ export default {
     nextPage(){
       localStorage.setItem('category', this.selected);
       localStorage.setItem('comment', this.comment);
+      localStorage.setItem('comment2', this.comment2);
       localStorage.setItem('type', this.selected_feedback);
       this.$router.push("/sender");
     }
