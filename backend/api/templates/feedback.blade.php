@@ -59,12 +59,6 @@
             <?php } ?>
 
             <br />
-            <?php if (@$obj->comment2 != '') { ?>
-            <blockquote>
-                {{ @$obj->comment2 }}
-            </blockquote>
-            <?php } ?>
-            <br />
             <div style="text-align:left">
             <h3 style="text-align:left">Category:</h3>
             <table>
