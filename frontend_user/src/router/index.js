@@ -32,8 +32,13 @@ const routes = [
       path: 'types',
       component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/Types')
     }, {
+      name: 'categories',
       path: 'categories',
       component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/Categories')
+    }, {
+      name: 'update_category',
+      path: 'categories/:id',
+      component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/CategoryUpdate')
     }, {
       path: 'items',
       component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/Items')

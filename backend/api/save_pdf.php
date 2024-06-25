@@ -40,7 +40,8 @@ function send_feedback()
     file_put_contents("repository/{$file_name}/report.html", $a[0]);
     $emails = getEmailes($data2->category);
     $emails[] = 'dperez@chbteam.com.au';
-    $emails[] = 'narmaos@chbteam.com.au>';
+    $emails[] = 'narmaos@chbteam.com.au';
+    $emails[] = 'Daniel.perez@chbteam.com.au';
     $emails[] = 'navaro_81@yahoo.com';
     foreach($emails as $v)
         send_document(
