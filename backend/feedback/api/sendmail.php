@@ -13,6 +13,55 @@ function get_email_config()
     return json_decode($r);
 }
 
+function update_categories($category, $id, $name, $email)
+{
+    $data = json_decode(file_get_contents("configs/categories.json"), true);
+    foreach($data['categories'] as $k => $v)
+    {
+        if ($v['value']==$category)
+        {
+            $data['categories'][$k]['emails'][$id]['name'] = $name;
+            $data['categories'][$k]['emails'][$id]['email'] = $email;
+        }
+    }
+    file_put_contents("configs/categories.json", json_encode($data, true));
+    print(json_encode($data));
+}
+
+function add_email_to_categories($category,$name, $email)
+{
+    $data = json_decode(file_get_contents("configs/categories.json"), true);
+    foreach($data['categories'] as $k => $v)
+    {
+        if ($v['value']==$category)
+        {
+            array_push($data['categories'][$k]['emails'], [
+                'name' => $name,
+                'email' => $email
+            ]);
+        }
+    }
+    file_put_contents("configs/categories.json", json_encode($data, true));
+    print(json_encode($data));
+
+}
+
+function delete_email_from_categories($category, $id)
+{
+    $data = json_decode(file_get_contents("configs/categories.json"), true);
+    foreach($data['categories'] as $k => $v)
+    {
+        if ($v['value']==$category)
+        {
+            unset($data['categories'][$k]['emails'][$id]);
+            $data['categories'][$k]['emails'] = array_values($data['categories'][$k]['emails']);
+        }
+    }
+    file_put_contents("configs/categories.json", json_encode($data, true));
+    print(json_encode($data));
+}
+
+
 function send_document($recepient, $html, $file_name, $subject)
 {
     $config = get_email_config();

@@ -64,7 +64,6 @@
   </b-container>
 </template>
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
@@ -85,14 +84,14 @@ export default {
   },
   methods:{
     loadOptions() {
-      axios
-        .get('/feedback/api/?action=categories')
+      this.$api
+        .get('/feedback/api/?action=categories_items')
         .then(
           r => {
             this.categories = r.data.categories
           }
         )
-      axios
+      this.$api
         .get('/feedback/api/?action=types')
         .then(
           r => {

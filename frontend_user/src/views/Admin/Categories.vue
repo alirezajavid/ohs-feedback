@@ -7,6 +7,11 @@
             <template #cell(id)="data">
                 {{ data.index + 1 }}
             </template>
+            <template #cell(emails)="data">
+                <div v-for="v,j in data.item.emails" :key="j">
+                    {{ v.name }} [{{ v.email }}]
+                </div>
+            </template>
             <template #cell(action)="data">
                 <b-button 
                     variant="outline-primary" 
@@ -18,12 +23,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   methods: {
     update(v) {
-        this.$router.push({ name: 'update_category', params:{id: v.item.value} });
-        console.log(v.item.value)
+        this.$router.push({ name: 'category_list', params:{id: v.item.value} });
     }
   },
   data () {
@@ -37,11 +40,11 @@ export default {
                 active: true
             }],
         items:[],
-        fields: [{key:'id',label:'#'},{ key:'value', label:'Category'}, 'name', 'email','action'],
+        fields: [{key:'id',label:'#'},{ key:'value', label:'Category'}, 'emails','action'],
     }
   },
     created() {
-        axios
+        this.$api
             .get("/feedback/api/?action=categories")
             .then(resp => {
                 this.items = resp.data.categories

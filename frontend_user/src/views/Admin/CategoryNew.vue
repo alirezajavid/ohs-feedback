@@ -46,24 +46,13 @@ export default {
         onReset() {},
         onSubmit() {
             this.$api
-                .patch("/feedback/api/?action=categories",{
+                .post("/feedback/api/?action=categories",{
                     'category' : this.$route.params.category,
-                    'id' : this.$route.params.id,
                     'name': this.name,
                     'email': this.email
                 })
                 .then(() => {
                     this.$router.push({ name: 'category_list', params:{ id: this.$route.params.category} });
-
-                })
-        },
-        fetchConfig(id) {
-            this.$api
-                .get("/feedback/api/?action=categories")
-                .then(resp => {
-                    let a = resp.data.categories.filter(i=> i.value == this.$route.params.category)
-                    this.name = a[0].emails[id].name
-                    this.email = a[0].emails[id].email
                 })
         }
     },
@@ -79,7 +68,7 @@ export default {
                 text: 'Emails of '  + this.$route.params.category,
                 href: '/#/admin/categories/' + this.$route.params.category
             },{
-                text: 'Setting',
+                text: 'New',
                 href: '#',
                 active: true
             }],
@@ -88,7 +77,6 @@ export default {
         }
     },
     created() {
-        this.fetchConfig(this.$route.params.id)
     }
 }
 </script>

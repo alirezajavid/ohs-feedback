@@ -12,7 +12,7 @@ cd ..
 
 cp -r frontend_user/dist/* release/feedback/
 #cp -r frontend_admin/dist/* release/feedback/admin/
-cp -r backend/* release/feedback/
+cp -r backend/* release/
 rm release/feedback/api/repositories/*
 
 cd release

@@ -26,7 +26,6 @@
   </b-container>
 </template>
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
@@ -44,7 +43,7 @@ export default {
         type: localStorage.getItem('type'),
         id: localStorage.getItem('id'),
       }
-      axios.post('/feedback/api/?action=send', params)
+      this.$api.post('/feedback/api/?action=send', params)
         .then(
           r => {
             if (r.status == 201)

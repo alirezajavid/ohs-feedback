@@ -7,7 +7,7 @@
             header-tag="header"
             header-bg-variant="dark"            
         >
-            <b-alert :show="showAlert" variant="danger">Invalid username or password!</b-alert>
+          <b-alert :show="showAlert" variant="danger">Invalid username or password!</b-alert>
           <b-row class="my-1">
             <b-col sm="2">
               <label for="username">Username:</label>
@@ -33,7 +33,6 @@
 
 <script>
 import axios from 'axios'
-
 export default {
     data()
     {
@@ -56,7 +55,7 @@ export default {
                     {
                         if (r.data.loggedin) {
                             localStorage.setItem('loggedIn', true)
-                            this.$router.push({ path: this.$route.query.redirect });
+                            this.$router.push({ path: '/admin/categories'});
                         } else
                             localStorage.removeItem('loggedIn')
                     }

@@ -25,6 +25,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "PageThree" */ '../views/Login.vue')
   },
   {
+    path: '/logout',
+    name: 'logout',
+    component: () => import(/* webpackChunkName: "Logout" */ '../views/Admin/Logout.vue')
+  },
+  {
     path: '/admin',
     component: () => import(/* webpackChunkName: "Admin" */ '../views/Admin.vue'),
     meta: { requiresAuth: true },
@@ -36,8 +41,16 @@ const routes = [
       path: 'categories',
       component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/Categories')
     }, {
-      name: 'update_category',
+      name: 'category_list',
       path: 'categories/:id',
+      component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/CategoryList')
+    }, {
+      name: 'category_new',
+      path: 'categories/:category/new',
+      component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/CategoryNew')
+    }, {
+      name: 'category_update',
+      path: 'categories/:category/:id',
       component: () => import(/* webpackChunkName: "Types" */ '../views/Admin/CategoryUpdate')
     }, {
       path: 'items',

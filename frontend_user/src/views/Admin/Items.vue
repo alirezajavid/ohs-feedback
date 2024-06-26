@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
     data () {
@@ -39,7 +38,7 @@ export default {
         }
     },
     created () {
-        axios
+        this.$api
             .get("/feedback/api/?action=menu")
             .then(
                 r => this.items = r.data.map(r => { return { ...r, action: '' } })
