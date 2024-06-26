@@ -33,10 +33,10 @@ export default {
     return {
         breadcrumb:[{
                 text: 'Admin',
-                href: '/#/admin/'
+                href: '/feedback/#/feedback/admin/'
             },{
                 text: 'Categories',
-                href: '/#/admin/categories',
+                href: '/feedback/#/admin/categories',
                 active: true
             }],
         items:[],

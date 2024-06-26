@@ -60,13 +60,13 @@ export default {
         return {
             breadcrumb:[{
                 text: 'Admin',
-                href: '/#/admin/'
+                href: '/feedback/#/admin/'
             },{
                 text: 'Categories',
-                href: '/#/admin/categories'
+                href: '/feedback/#/admin/categories'
             },{
                 text: 'Emails of '  + this.$route.params.category,
-                href: '/#/admin/categories/' + this.$route.params.category
+                href: '/feedback/#/admin/categories/' + this.$route.params.category
             },{
                 text: 'New',
                 href: '#',
